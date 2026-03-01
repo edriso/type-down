@@ -38,6 +38,8 @@ export default function TypingExercise({ exerciseId, onBack, onComplete }) {
         correctKeystrokes={correctKeystrokes}
         totalKeystrokes={totalKeystrokes}
         charCount={input.length}
+        input={input}
+        target={targetText}
         onRestart={handleRestart}
         onBack={onBack}
       />
