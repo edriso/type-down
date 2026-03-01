@@ -6,17 +6,30 @@ export default function TargetDisplay({ target, input }) {
       {target.split('').map((char, i) => {
         const status = getCharStatus(target, input, i)
         const isCursor = i === input.length
+        const isNewline = char === '\n'
+
+        const colorClass =
+          status === 'correct'
+            ? 'text-green-600 dark:text-green-400'
+            : status === 'incorrect'
+              ? 'bg-red-200 dark:bg-red-900/50 text-red-700 dark:text-red-300'
+              : 'text-gray-400 dark:text-gray-500'
+
+        const cursorClass = isCursor ? 'border-l-2 border-indigo-500 animate-pulse' : ''
+
+        if (isNewline) {
+          return (
+            <span key={i}>
+              <span className={`${colorClass} ${cursorClass} text-xs opacity-60`}>
+                {status === 'incorrect' ? '↵' : ''}
+              </span>
+              {'\n'}
+            </span>
+          )
+        }
+
         return (
-          <span
-            key={i}
-            className={`${
-              status === 'correct'
-                ? 'text-green-600 dark:text-green-400'
-                : status === 'incorrect'
-                  ? 'bg-red-200 dark:bg-red-900/50 text-red-700 dark:text-red-300'
-                  : 'text-gray-400 dark:text-gray-500'
-            } ${isCursor ? 'border-l-2 border-indigo-500 animate-pulse' : ''}`}
-          >
+          <span key={i} className={`${colorClass} ${cursorClass}`}>
             {char}
           </span>
         )
