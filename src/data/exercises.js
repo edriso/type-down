@@ -1,0 +1,135 @@
+export const exercises = [
+  {
+    id: 'headings',
+    title: 'Headings',
+    description: 'Practice Markdown heading syntax',
+    difficulty: 'easy',
+    lines: [
+      '# Main Title',
+      '## Section Header',
+      '### Subsection',
+      '#### Deep Heading',
+      '## Another Section',
+    ],
+  },
+  {
+    id: 'emphasis',
+    title: 'Emphasis & Inline',
+    description: 'Bold, italic, and inline code',
+    difficulty: 'easy',
+    lines: [
+      'This is *italic* text.',
+      'This is **bold** text.',
+      'This is ***bold italic*** text.',
+      'Use `console.log()` to debug.',
+      'Press `Ctrl+C` to copy.',
+    ],
+  },
+  {
+    id: 'lists',
+    title: 'Lists',
+    description: 'Ordered and unordered lists',
+    difficulty: 'medium',
+    lines: [
+      '- First item',
+      '- Second item',
+      '  - Nested item',
+      '- Third item',
+      '',
+      '1. Step one',
+      '2. Step two',
+      '3. Step three',
+    ],
+  },
+  {
+    id: 'links-images',
+    title: 'Links & Images',
+    description: 'Hyperlinks and image syntax',
+    difficulty: 'medium',
+    lines: [
+      '[Click here](https://example.com)',
+      '[Docs](https://docs.example.com "Documentation")',
+      '![Alt text](image.png)',
+      '[![Badge](badge.svg)](https://link.com)',
+    ],
+  },
+  {
+    id: 'code-blocks',
+    title: 'Code Blocks',
+    description: 'Fenced code blocks with languages',
+    difficulty: 'medium',
+    lines: [
+      '```javascript',
+      'function greet(name) {',
+      '  return `Hello, ${name}!`;',
+      '}',
+      '```',
+      '',
+      '```css',
+      '.container {',
+      '  display: flex;',
+      '  gap: 1rem;',
+      '}',
+      '```',
+    ],
+  },
+  {
+    id: 'blockquotes',
+    title: 'Blockquotes',
+    description: 'Quoted text and nested quotes',
+    difficulty: 'easy',
+    lines: [
+      '> This is a blockquote.',
+      '> It can span multiple lines.',
+      '>',
+      '> > Nested quotes work too.',
+      '> > They add depth.',
+    ],
+  },
+  {
+    id: 'tables',
+    title: 'Tables',
+    description: 'Markdown table syntax',
+    difficulty: 'hard',
+    lines: [
+      '| Name   | Role      | Status |',
+      '|--------|-----------|--------|',
+      '| Alice  | Developer | Active |',
+      '| Bob    | Designer  | Away   |',
+      '| Carol  | Manager   | Active |',
+    ],
+  },
+  {
+    id: 'mixed',
+    title: 'Full Document',
+    description: 'A complete Markdown document',
+    difficulty: 'hard',
+    lines: [
+      '# Project README',
+      '',
+      '## Overview',
+      '',
+      'A **powerful** tool for *developers*.',
+      '',
+      '## Installation',
+      '',
+      '```bash',
+      'npm install my-tool',
+      '```',
+      '',
+      '## Usage',
+      '',
+      '- Import the module',
+      '- Call `init()` to start',
+      '- See [docs](https://example.com) for more',
+    ],
+  },
+]
+
+export function getExerciseById(id) {
+  return exercises.find((e) => e.id === id)
+}
+
+export function getExerciseText(exercise) {
+  return exercise.lines.join('\n')
+}
