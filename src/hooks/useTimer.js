@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 
 export function useTimer() {
   const [elapsed, setElapsed] = useState(0)
@@ -17,6 +17,8 @@ export function useTimer() {
     clearInterval(intervalRef.current)
     intervalRef.current = null
   }, [])
+
+  useEffect(() => stop, [stop])
 
   const reset = useCallback(() => {
     stop()
